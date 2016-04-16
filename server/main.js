@@ -3,7 +3,6 @@ import { Mongo } from "meteor/mongo";
 import { Strings } from "../imports/editor.js";
 
 Meteor.startup(() => {
-  console.log("Strings.find({}).count() === " + Strings.find({}).count());
   if (Strings.find({}).count() === 0) {
     Strings.insert({
       _id: "Slogan",
