@@ -6,37 +6,26 @@
 <body>
   <div class="container">
     <h1>Saleae Text Editor</h1>
-    {{> stringEditor}}
-    {{> stringEditor}}
-    {{> stringEditor}}
+    {{> editor}}
   </div>
 </body>
+
+<template name="editor">
+    {{#each string in strings}}
+      {{> stringEditor string}}
+    {{/each}}
+</template>
 
 <template name="stringEditor">
   <div class="row saleae-margin-top-m">
     <div class="col-xs-12">
-      <form>
+      <form data-id="{{_id}}">
         <div class="form-group">
-          <label>String Editor Label</label>
-          <textarea class="form-control"></textarea>
+          <label>{{_id}}</label>
+          <textarea class="form-control">{{text}}</textarea>
         </div>
         <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span> Save</button>
       </form>
     </div>
   </div>
-</template>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
-
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com">Discussions</a></li>
-  </ul>
 </template>
